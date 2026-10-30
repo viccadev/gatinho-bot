@@ -48,3 +48,7 @@ yarn.lock
 # This file contains sensitive information and should not be tracked by git
 .env
 .env.bak
+
+
+# Ignore folder icon configuration file
+.directory
