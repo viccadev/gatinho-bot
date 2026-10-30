@@ -47,3 +47,4 @@ yarn.lock
 # Ignore all files in the .env file
 # This file contains sensitive information and should not be tracked by git
 .env
+.env.bak
