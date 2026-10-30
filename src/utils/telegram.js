@@ -28,9 +28,11 @@ async function replyWithPhotoSafe(ctx, photoUrl) {
     const threadId = getThreadID()
     // Caso grupo:
     if (groupId) {
+        console.log('é grupo!')
         const extra = {};
 
         if (threadId) {
+            console.log('tem tópicos!')
             extra.message_thread_id = parseInt(threadId, 10)
         }
 
