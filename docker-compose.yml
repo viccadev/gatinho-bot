@@ -1,0 +1,7 @@
+services:
+  gatinho-bot:
+    build: .
+    container_name: gatinho-bot
+    restart: unless-stopped
+    env_file:
+      - .env

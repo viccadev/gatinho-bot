@@ -1,4 +1,4 @@
-import bot from './scr/bot.js';
+import bot from './src/bot.js';
 
 console.log('Bot is set up. Ready to launch.');
 

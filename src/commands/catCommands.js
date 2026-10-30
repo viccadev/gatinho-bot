@@ -1,24 +1,30 @@
 import { getCatImage } from '../services/catService.js';
 import { Markup } from 'telegraf';
+import { replyWithText, replyWithPhotoSafe } from '../utils/telegram.js';
 
 function commandStart(bot) {
-    bot.start((ctx) => ctx.reply('Oii! Eu sou o bot de gatinhos! Clique no botão abaixo para receber uma foto de gatinho ou mande /gatinho.', Markup.inlineKeyboard([
-        Markup.button.callback('Gatinho!!', 'get_cat'),
-    ])));
+    bot.start((ctx) => replyWithText(ctx,
+        'Oii! Eu sou o bot de gatinhos! Clique no botão abaixo para receber uma foto de gatinho ou mande /gatinho.',
+        Markup.inlineKeyboard([
+            Markup.button.callback('Gatinho!!', 'get_cat'),
+        ])
+    ))
 }
 
 function commandHelp(bot) {
-    bot.help((ctx) => ctx.reply('Comandos disponíveis:\n/gatinho - Receba uma foto de gatinho.'));
+    bot.help((ctx) => replyWithText(ctx,
+        'Comandos disponíveis:\n/gatinho - Receba uma foto de gatinho.'
+    ))
 }
 
 async function commandCat(bot) {
     bot.command('gatinho', async (ctx) => {
         try {
             const catImage = await getCatImage();
-            await ctx.replyWithPhoto(catImage);
+            await replyWithPhotoSafe(ctx, catImage);
         } catch (error) {
             console.error('Error fetching cat image:', error);
-            ctx.reply('An error occurred while fetching a cat image. Please try again later.');
+            await replyWithText(ctx, 'An error occurred while fetching a cat image. Please try again later.');
         }
     });
 }
@@ -28,10 +34,10 @@ async function commandGetCat(bot) {
         ctx.answerCbQuery();
         try {
             const catImage = await getCatImage();
-            await ctx.replyWithPhoto(catImage);
+            await replyWithPhotoSafe(ctx, catImage);
         } catch (error) {
             console.error('Error fetching cat image:', error);
-            ctx.reply('An error occurred while fetching a cat image. Please try again later.');
+            await replyWithText(ctx, 'An error occurred while fetching a cat image. Please try again later.');
         }
     });
 }
