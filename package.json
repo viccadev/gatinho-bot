@@ -1,0 +1,22 @@
+{
+  "name": "projetinho-bot",
+  "version": "1.0.0",
+  "description": "Projetinho Telegram bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "type": "module",
+  "keywords": [
+    "telegram",
+    "bot",
+    "telegraf"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "telegraf": "^4.16.3"
+  }
+}
