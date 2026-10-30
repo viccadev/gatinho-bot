@@ -1,5 +1,6 @@
 services:
   gatinho-bot:
+    image: gatinho-bot:latest
     build: .
     container_name: gatinho-bot
     restart: unless-stopped

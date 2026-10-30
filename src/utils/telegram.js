@@ -4,6 +4,12 @@ import { getGroupID, getThreadID } from "../config/index.js";
 // Função para o bot enviar mensagens de texto
 
 async function replyWithText(ctx, text, options = {}) {
+    const isPrivate = ctx.chat?.type === 'private';
+
+    if (isPrivate) {
+        return await ctx.reply(text, options);
+    }
+
     const groupId = getGroupID()
     const threadId = getThreadID()
     // Caso esteja em um grupo:
@@ -24,6 +30,11 @@ async function replyWithText(ctx, text, options = {}) {
 // Função para o bot enviar mensagens com imagem
 
 async function replyWithPhotoSafe(ctx, photoUrl) {
+    const isPrivate = ctx.chat?.type === 'private';
+
+    if (isPrivate) {
+        return await ctx.replyWithPhoto(photoUrl);
+    } 
     const groupId = getGroupID()
     const threadId = getThreadID()
     // Caso grupo:
