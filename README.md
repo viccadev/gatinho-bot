@@ -93,8 +93,8 @@ npm run dev
 A imagem já está publicada no Docker Hub:
 
 ```bash
-docker pull viccadev/gatinho-bot:latest
-docker run --env-file .env viccadev/gatinho-bot:latest
+docker pull hellcatty/gatinho-bot:latest
+docker run --env-file .env hellcatty/gatinho-bot:latest
 ```
 
 ### Opção 2: Buildar localmente
