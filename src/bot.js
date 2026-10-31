@@ -2,7 +2,7 @@ import { Telegraf } from 'telegraf';
 import { botToken } from './config/index.js';
 import { commandsHandler } from './commands/catCommands.js';
 
-const bot = new Telegraf(botToken());
+const bot = new Telegraf(botToken);
 
 bot.use((ctx, next) => {
     console.log('--- NOVA ATUALIZAÇÃO RECEBIDA ---');
