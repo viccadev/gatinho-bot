@@ -4,6 +4,7 @@ Um **bot de Telegram** que envia fotos de gatinhos aleatórias quando acionado. 
 
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![Telegraf](https://img.shields.io/badge/Telegraf-9B7CFD?style=for-the-badge&logo=telegram&logoColor=white)
+![Docker](https://img.shields.io/docker/v/hellcatty/gatinho-bot?label=Docker%20Hub&logo=docker&color=blue)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 ## ✨ Funcionalidades
@@ -87,11 +88,22 @@ npm run dev
 
 ## 🐳 Rodando com Docker
 
+### Opção 1: Usando a imagem do Docker Hub (recomendado)
+
+A imagem já está publicada no Docker Hub:
+
+```bash
+docker pull viccadev/gatinho-bot:latest
+docker run --env-file .env viccadev/gatinho-bot:latest
+```
+
+### Opção 2: Buildar localmente
+
 ```bash
 docker-compose up --build
 ```
 
-Isso construirá a imagem `gatinho-bot:latest` e rodará o container com o nome `gatinho-bot`, reiniciando automaticamente caso o processo seja interrompido.
+Isso construirá a imagem localmente e rodará o container com o nome `gatinho-bot`, reiniciando automaticamente caso o processo seja interrompido.
 
 ```bash
 # Rodar em segundo plano
@@ -101,9 +113,34 @@ docker-compose up -d
 docker-compose logs -f
 ```
 
+
+
 ## 📡 API utilizada
 
 - [The Cat API](https://api.thecatapi.com/v1/images/search) — retorna URLs de imagens de gatos.
+
+## 🐳 Docker Hub
+
+A imagem Docker está publicada no Docker Hub:
+
+| Repositório | Link |
+|---|---|
+| `hellcatty/gatinho-bot` | https://hub.docker.com/repository/docker/hellcatty/gatinho-bot/general |
+
+### Tags disponíveis
+
+- `latest` — versão estável mais recente
+- `2.2.0` — versão específica
+
+### Build local
+
+Se preferir buildar a imagem manualmente:
+
+```bash
+docker build -t hellcatty/gatinho-bot:2.2.0 .
+docker push hellcatty/gatinho-bot:2.2.0
+```
+
 
 ## 🔧 Variáveis de ambiente detalhadas
 
