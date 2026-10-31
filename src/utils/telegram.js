@@ -1,4 +1,4 @@
-import { getGroupID, getThreadID } from "../config/index.js";
+import { groupId, threadId } from "../config/index.js";
 
 
 // Função para o bot enviar mensagens de texto
@@ -10,8 +10,6 @@ async function replyWithText(ctx, text, options = {}) {
         return await ctx.reply(text, options);
     }
 
-    const groupId = getGroupID()
-    const threadId = getThreadID()
     // Caso esteja em um grupo:
     if (groupId) {
         const extra = { ...options };
@@ -35,8 +33,7 @@ async function replyWithPhotoSafe(ctx, photoUrl) {
     if (isPrivate) {
         return await ctx.replyWithPhoto(photoUrl);
     } 
-    const groupId = getGroupID()
-    const threadId = getThreadID()
+
     // Caso grupo:
     if (groupId) {
         console.log('é grupo!')
