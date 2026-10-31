@@ -1,7 +1,6 @@
 services:
   gatinho-bot:
-    image: gatinho-bot:latest
-    build: .
+    image: hellcatty/gatinho-bot:latest
     container_name: gatinho-bot
     restart: unless-stopped
     env_file:
